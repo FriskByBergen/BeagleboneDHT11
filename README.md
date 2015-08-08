@@ -1,2 +1,6 @@
 # BeagleboneDHT11
-Beaglebone DHT11 reporting to Firebase
+
+A simple program reading temp and humidity from a DHT11 and reporting the data to Firebase
+
+Most of the code is copyright Adafruit!
+
