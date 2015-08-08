@@ -27,6 +27,7 @@ import time
 
 sensor = Adafruit_DHT.DHT11
 pin = 'P8_11'
+SENSORID = "SOME_ID"
 
 while(1):
         humidity, temperature = Adafruit_DHT.read_retry(sensor, pin)
@@ -34,7 +35,7 @@ while(1):
                 print 'Temp={0:0.1f}*C  Humidity={1:0.1f}%'.format(temperature, humidity)
                 FBApp = "https://your_app.firebaseio.com"
                 FBConn = firebase.FirebaseApplication(FBApp, None)
-                data = {'temp':temperature, 'humid':humidity , "ts":{".sv": "timestamp"}}
+                data = {'id':SENSORID, 'temp':temperature, 'humid':humidity , "ts":{".sv": "timestamp"}}
                 FBConn.post("/temp",data)
         else:
                 print 'Failed to get reading. Try again!'
